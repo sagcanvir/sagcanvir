@@ -1,0 +1,74 @@
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning}
+
+\begin{document}
+
+\begin{tikzpicture}[node distance=1cm, auto, font=\small]
+% Define styles
+\tikzstyle{block} = [rectangle, draw, fill=blue!20, text width=5em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{time} = [circle, draw, fill=red!20, text width=1em, text centered, minimum size=1em]
+
+% Place nodes
+\node [block] (hipertension) {Hipertensión arterial};
+\node [block, below left=of hipertension] (prepatogenico) {Periodo prepatogénico};
+\node [block, below right=of hipertension] (patogenico) {Periodo patogénico};
+\node [block, below left=of prepatogenico] (factores) {Factores de riesgo};
+\node [block, below right=of patogenico] (cambios) {Cambios fisiopatológicos};
+\node [block, below=of cambios] (dano) {Daño tisular};
+\node [block, below=of dano] (sintomas) {Signos y síntomas};
+\node [block, below=of sintomas] (complicaciones) {Complicaciones};
+\node [block, below=of factores] (prevencion) {Prevención};
+\node [block, below left=of prevencion] (primaria) {Primaria};
+\node [block, below=of prevencion] (secundaria) {Secundaria};
+\node [block, below right=of prevencion] (terciaria) {Terciaria};
+\node [time, right=of hipertension] (t0) {T0};
+\node [time, right=of prepatogenico] (t1) {T1};
+\node [time, right=of patogenico] (t2) {T2};
+\node [time, right=of cambios] (t3) {T3};
+\node [time, right=of dano] (t4) {T4};
+\node [time, right=of sintomas] (t5) {T5};
+\node [time, right=of complicaciones] (t6) {T6};
+
+% Draw edges
+\path [line] (hipertension) -- (prepatogenico);
+\path [line] (hipertension) -- (patogenico);
+\path [line] (prepatogenico) -- (factores);
+\path [line] (patogenico) -- (cambios);
+\path [line] (cambios) -- (dano);
+\path [line] (dano) -- (sintomas);
+\path [line] (sintomas) -- (complicaciones);
+\path [line] (factores) -- (prevencion);
+\path [line] (prevencion) -- (primaria);
+\path [line] (prevencion) -- (secundaria);
+\path [line] (prevencion) -- (terciaria);
+\path [line] (t0) -- (t1);
+\path [line] (t1) -- (t2);
+\path [line] (t2) -- (t3);
+\path [line] (t3) -- (t4);
+\path [line] (t4) -- (t5);
+\path [line] (t5) -- (t6);
+
+% Add labels
+\node [above=of t0] {Inicio de la hipertensión arterial};
+\node [above=of t1] {Exposición a los factores de riesgo};
+\node [above=of t2] {Desarrollo de los cambios fisiopatológicos};
+\node [above=of t3] {Aparición del daño tisular};
+\node [above=of t4] {Manifestación de los signos y síntomas};
+\node [above=of t5] {Ocurrencia de las complicaciones};
+\node [above=of t6] {Evolución de las enfermedades o comorbilidades};
+
+% Add examples
+\node [below=of factores] {Ejemplos: edad, sexo, raza, obesidad, herencia, consumo de sal, alcohol y tabaco, estrés, sedentarismo, diabetes, dislipidemia, etc[^1^][1] [^2^][2]};
+\node [below=of cambios] {Ejemplos: incremento del gasto cardiaco, resistencia periférica, aterosclerosis, desequilibrio de la enzima renina-angiotensina, etc[^1^][1] [^2^][2]};
+\node [below=of dano] {Ejemplos: daño en el corazón, el cerebro, el riñón, la retina y otros órganos[^1^][1] [^2^][2]};
+\node [below=of sintomas] {Ejemplos: cefalea, mareos, epistaxis, fosfenos, hemianopsias, parestesias, diplopía, etc[^2^][2]};
+\node [below=of complicaciones] {Ejemplos: cardiopatía hipertensiva, encefalopatía hipertensiva, retinopatía hipertensiva, nefropatía hipertensiva, endocrinopatía y muerte[^2^][2]};
+\node [below=of primaria] {Ejemplos: promover la salud, proteger de los factores de riesgo, orientar sobre la buena alimentación, el ejercicio, el manejo del estrés, el control del peso, el abandono de hábitos nocivos, etc[^2^][2]};
+\node [below=of secundaria] {Ejemplos: realizar el diagnóstico precoz mediante la medición de la presión arterial, el estudio de fondo de ojo, el electrocardiograma, el análisis de orina, etc. Tratar con medicamentos antihipertensivos y hacer seguimiento periódico[^2^][2]};
+\node [below=of terciaria] {Ejemplos: limitar el daño causado por la hipertensión arterial y rehabilitar al paciente mediante el control de las complicaciones, la modificación del estilo de vida, el apoyo psicológico, la educación sanitaria, etc[^2^][2]};
+\node [below=of t6] {Ejemplos: accidente cerebrovascular, hemorragia cerebral, insuficiencia renal, insuficiencia cardíaca, cardiopatía coronaria, estrechez de la arteria de las piernas, deterioro cerebral, etc[^3^][3] [^4^][4]};
+\end{tikzpicture}
+
+\end{document}
